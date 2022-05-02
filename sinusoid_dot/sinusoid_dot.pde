@@ -3,11 +3,11 @@ void setup() {
 }
 
 float periodicFunction(float p) {
-  return map(sin(TWO_PI*p), -1, 1, 4, 16);
+  return map(sin(TWO_PI * p), -1, 1, 2, 16);
 }
 
 float offset(float x, float y) {
-  return 0.01*dist(x, y, width/2, height/2);
+  return 0.01 * dist(x, y, width/2, height/2);
 }
 
 int numFrames = 60;
@@ -18,11 +18,11 @@ void draw() {
   
   float t = 1.0*frameCount/numFrames;
   
-  int m = 20;
-  
+  int m = 25;
+
   for (int i = 0; i < m; i++) {
+    float x = map(i, 0, m - 1, 0, width);
     for (int j = 0; j < m; j++) {
-      float x = map(i, 0, m - 1, 0, width);
       float y = map(j, 0, m - 1, 0, height);
       
       float size = periodicFunction(t - offset(x,y));
